@@ -9,57 +9,8 @@
 	   		http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 
 
-<!-- load the properties file: sport.properties -->
-<context:property-placeholder location="classpath:sport.properties" />
+<!-- add entry to enable component scanning-->
 
-
-<!-- define dependency -->
-<bean id="myFortune"
-class="com.mindworks.springdemo.HappyFortuneService">
-</bean>
-
-
-<bean id="myCoach"
-class="com.mindworks.springdemo.BaseballCoach">
-
-<!-- define constructor injection -->
-<constructor-arg ref="myFortune"/>
-</bean>
-
-<bean id="myCricketCoach"
-class="com.mindworks.springdemo.CricketCoach">
-
-<!-- define setter injection -->
-<property name="fortuneService" ref="myFortune"/>
-<property name="emailAddress" value="${foo.email}"/>
-<property name="team" value="${foo.team}"/>
-</bean>
-
-<!-- define dependency -->
-<bean id="randomFortuneService"
-class="com.mindworks.springdemo.RandomFortuneService">
-
-<!-- define setter injection -->
-<property name="fortunes" value="${foo.rdnmFortunes}"/>
-</bean>
-
-
-<!---->
-<bean id="climbingCoach"
-class="com.mindworks.springdemo.ClimbingCoach"
-init-method="firstMethodToBeCalled"
-destroy-method="lastMethod"
-scope="singleton">
-
-
-<!-- Implementing constructor injection to TrackCoach's class' constructor -->
-<constructor-arg ref="randomFortuneService"/>
-</bean>
-
-
-
-
-
-
+<context:component-scan base-package="com.mindworks.springdemo"/>
 
 </beans>
