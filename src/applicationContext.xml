@@ -43,13 +43,19 @@ class="com.mindworks.springdemo.RandomFortuneService">
 <property name="fortunes" value="${foo.rdnmFortunes}"/>
 </bean>
 
+
+<!---->
 <bean id="climbingCoach"
-class="com.mindworks.springdemo.ClimbingCoach">
+class="com.mindworks.springdemo.ClimbingCoach"
+init-method="firstMethodToBeCalled"
+destroy-method="lastMethod"
+scope="singleton">
 
-<!-- define constructor injection -->
+
+<!-- Implementing constructor injection to TrackCoach's class' constructor -->
 <constructor-arg ref="randomFortuneService"/>
-
 </bean>
+
 
 
 
