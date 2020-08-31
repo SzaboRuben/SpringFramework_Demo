@@ -1,5 +1,8 @@
 package com.mindworks.springdemo;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
@@ -14,7 +17,7 @@ import org.springframework.stereotype.Component;
 // Working with the default bean id which is in this case = tennisCoach 
 //(default = the name of the class starting with small letter / lowercase)
 @Component
-@Scope("prototype")
+//@Scope("prototype")
 public class TennisCoach implements Coach {
 
 	// In case of multiple implementation of an Interface, we are to use @Qualifier
@@ -25,8 +28,22 @@ public class TennisCoach implements Coach {
 	private FortuneService fortuneService;
 
 	public TennisCoach() {
-		System.out.println("TennisCoach: inside the default constructor");
+//		System.out.println("TennisCoach: inside the default constructor");
 	}
+	
+//	Define init method
+	@PostConstruct
+	private void doMyStartupStuff() {
+//		System.out.println("TennisCoach: inside the doMyStartupStuff() method ");
+	}
+	
+
+//	Define destroy method
+	@PreDestroy
+	private void doMyCleanupStuff() {
+//		System.out.println("TennisCoach: inside the doMyCleanupStuff() method ");
+	}
+	
 
 //	Syntax of qualifying args of a constructor is slightly different
 	@Autowired

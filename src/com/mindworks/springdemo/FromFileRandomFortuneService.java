@@ -2,10 +2,10 @@ package com.mindworks.springdemo;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.Random;
+
+import javax.annotation.PostConstruct;
 
 import org.springframework.stereotype.Component;
 
@@ -16,10 +16,6 @@ public class FromFileRandomFortuneService implements FortuneService {
 
 	private Random random;
 
-	public FromFileRandomFortuneService() {
-		fortunes = readFortunesFromFile("fortunes.txt");
-	}
-
 	@Override
 	public String getFortune() {
 		random = new Random();
@@ -27,8 +23,12 @@ public class FromFileRandomFortuneService implements FortuneService {
 		return fortunes[index];
 	}
 
-	public String[] readFortunesFromFile(String fileName) {
-
+//	Implementing the import needs to be carried out right after instantiating an Object
+//	Achieving this with @PostConstruct annotation
+	@PostConstruct
+	public void readFortunesFromFile() {
+		System.out.println(">> FromFileRandomFortuneService : inside readFortunesFromFile() method" );
+		String fileName = "fortunes.txt";
 		ClassLoader classLoader = getClass().getClassLoader();
 
 		File file = new File(classLoader.getResource(fileName).getFile());
@@ -39,8 +39,7 @@ public class FromFileRandomFortuneService implements FortuneService {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return fortunes.split(",");
-
+		this.fortunes = fortunes.split(",");
 	}
 
 }
