@@ -16,7 +16,7 @@ public class ClimbingCoach implements Coach {
 	
 //	Instantiatig an implementation of Fortuneservice with Spring
 	@Autowired
-	@Qualifier("randomFortuneService")
+	@Qualifier("fromFileRandomFortuneService")
 	private FortuneService fortuneService;
 
 	@Override
