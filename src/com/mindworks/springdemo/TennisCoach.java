@@ -18,18 +18,19 @@ public class TennisCoach implements Coach {
 	
 //	In case of multiple implementation of an Interface, we are to use @Qualifier to flag
 //	Spring which specific Bean we would like to use
-	@Autowired
-	@Qualifier("randomFortuneService")
+//	@Autowired
+//	@Qualifier("randomFortuneService")
 	private FortuneService fortuneService;
 
 	public TennisCoach() {
 		System.out.println("TennisCoach: inside the default constructor");
 	}
 
-//	@Autowired
-//	public TennisCoach(FortuneService fortuneService) {
-//		this.fortuneService = fortuneService;
-//	}
+//	Syntax of qualifying args of a constructor is slightly different
+	@Autowired
+	public TennisCoach(@Qualifier("randomFortuneService") FortuneService fortuneService) {
+		this.fortuneService = fortuneService;
+	}
 
 	@Override
 	public String getDailyWorkout() {
