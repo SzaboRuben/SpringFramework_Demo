@@ -15,8 +15,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class TennisCoach implements Coach {
 
-	
-//	In case of multiple implementation of an Interface, we are to use @Qualifier to flag
+	// In case of multiple implementation of an Interface, we are to use @Qualifier
+	// to flag
 //	Spring which specific Bean we would like to use
 //	@Autowired
 //	@Qualifier("randomFortuneService")
@@ -55,5 +55,17 @@ public class TennisCoach implements Coach {
 //		System.out.println("TennisCoach: inside the doCrazyyy() method");
 //		this.fortuneService = fortuneService;
 //	}
+	
+	@Override
+	public String getEmail() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getTeam() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
