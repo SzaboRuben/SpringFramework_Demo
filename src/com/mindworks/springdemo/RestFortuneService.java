@@ -3,13 +3,12 @@ package com.mindworks.springdemo;
 import org.springframework.stereotype.Component;
 
 @Component
-public class HappyFortuneService implements FortuneService {
+public class RestFortuneService implements FortuneService {
 
 	@Override
 	public String getFortune() {
-		return "Today your wishes come true!";
+		// TODO Auto-generated method stub
+		return null;
 	}
-	
-	
 
 }

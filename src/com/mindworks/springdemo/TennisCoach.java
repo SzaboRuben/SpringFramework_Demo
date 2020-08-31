@@ -1,6 +1,7 @@
 package com.mindworks.springdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 // This class has been added to the application context as a Spring bean 
@@ -14,7 +15,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class TennisCoach implements Coach {
 
+	
+//	In case of multiple implementation of an Interface, we are to use @Qualifier to flag
+//	Spring which specific Bean we would like to use
 	@Autowired
+	@Qualifier("randomFortuneService")
 	private FortuneService fortuneService;
 
 	public TennisCoach() {

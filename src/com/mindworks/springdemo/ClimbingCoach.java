@@ -1,17 +1,15 @@
 package com.mindworks.springdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ClimbingCoach implements Coach {
 
+	@Autowired
+	@Qualifier("happyFortuneService")
 	private FortuneService fortuneService;
-
-	public ClimbingCoach(FortuneService fortuneService) {
-		super();
-		this.fortuneService = fortuneService;
-	}
 
 	@Override
 	public String getDailyWorkout() {
@@ -23,9 +21,5 @@ public class ClimbingCoach implements Coach {
 		return fortuneService.getFortune();
 	}
 
-	@Autowired
-	public void setFortuneService(FortuneService fortuneService) {
-		this.fortuneService = fortuneService;
-	}
 
 }
