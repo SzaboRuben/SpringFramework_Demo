@@ -1,5 +1,6 @@
 package com.mindworks.springdemo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 // This class has been added to the application context as a Spring bean 
@@ -13,9 +14,33 @@ import org.springframework.stereotype.Component;
 @Component
 public class TennisCoach implements Coach {
 
+	
+//  @Autowired
+	private FortuneService fortuneService;
+	
+	
+	
+//	@Autowired
+	public TennisCoach(FortuneService fortuneService) {
+		this.fortuneService = fortuneService;
+	}
+
+
+
+
 	@Override
 	public String getDailyWorkout() {
 		return "Practice the serving!";
 	}
+
+
+
+
+	@Override
+	public String getDailyFortune() {
+		return fortuneService.getFortune();
+	}
+	
+	
 
 }
