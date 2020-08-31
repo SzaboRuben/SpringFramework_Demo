@@ -2,6 +2,7 @@ package com.mindworks.springdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 // This class has been added to the application context as a Spring bean 
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Component;
 // Working with the default bean id which is in this case = tennisCoach 
 //(default = the name of the class starting with small letter / lowercase)
 @Component
+@Scope("prototype")
 public class TennisCoach implements Coach {
 
 	// In case of multiple implementation of an Interface, we are to use @Qualifier
