@@ -36,9 +36,17 @@ public class TennisCoach implements Coach {
 		return fortuneService.getFortune();
 	}
 
+//	@Autowired
+//	public void setFortuneService(FortuneService fortuneService) {
+//		System.out.println("TennisCoach: inside the setFortuneService() method");
+//		this.fortuneService = fortuneService;
+//	}
+	
+//	We can use the @Autowired - annotation ( for dep. injection)  for any method, it can be
+//	setter or whatever
 	@Autowired
-	public void setFortuneService(FortuneService fortuneService) {
-		System.out.println("TennisCoach: inside the setFortuneService() method");
+	public void doCrazyyy(FortuneService fortuneService) {
+		System.out.println("TennisCoach: inside the doCrazyyy() method");
 		this.fortuneService = fortuneService;
 	}
 
