@@ -9,9 +9,9 @@ import org.springframework.stereotype.Component;
 public class ClimbingCoach implements Coach {
 
 //	Initializing attributes using values from "sport.properties"
-	@Value("${foo.email}")
+	@Value("${foo.email.climbingCoach}")
 	private String email;
-	@Value("${foo.team}")
+	@Value("${foo.team.climbingCoach}")
 	private String team;
 	
 //	Instantiatig an implementation of Fortuneservice with Spring

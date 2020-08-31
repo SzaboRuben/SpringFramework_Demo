@@ -17,10 +17,23 @@ public class SportConfig {
 	};
 	
 	
+//	define bean for happy fortune service
+	@Bean
+	public HappyFortuneService happyFortuneService() {
+		return new HappyFortuneService();
+	};
+	
+	
 //	define bean for swim coach AND inject dependency
 	@Bean
 	public Coach swimCoach() {
 		return new SwimCoach(sadFortuneService());
+	}
+	
+//	define bean for hockey coach AND inject dependency
+	@Bean
+	public Coach hockeyCoach() {
+		return new HockeyCoach(happyFortuneService());
 	}
 
 }

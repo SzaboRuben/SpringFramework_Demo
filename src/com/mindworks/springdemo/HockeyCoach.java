@@ -2,22 +2,23 @@ package com.mindworks.springdemo;
 
 import org.springframework.beans.factory.annotation.Value;
 
-public class SwimCoach implements Coach {
+public class HockeyCoach implements Coach {
 
 	private FortuneService fortuneService;
 
-	@Value("${foo.email.swimCoach}")
+	@Value("${foo.email.hockeyCoach}")
 	private String email;
-	@Value("${foo.team.swimCoach}")
+	
+	@Value("${foo.team.hockeyCoach}")
 	private String team;
 
-	public SwimCoach(FortuneService fortuneService) {
-		this.fortuneService = fortuneService;
+	public HockeyCoach(FortuneService happyFortuneService) {
+		this.fortuneService = happyFortuneService;
 	}
 
 	@Override
 	public String getDailyWorkout() {
-		return "Swim 2000 meters!";
+		return "Skate 50 circles in 10 minutes !";
 	}
 
 	@Override
