@@ -15,6 +15,12 @@ public class FromFileRandomFortuneService implements FortuneService {
 	private String fortunes[];
 
 	private Random random;
+	
+	
+
+	public FromFileRandomFortuneService() {
+		System.out.println(">> FromFileRandomFortuneService: inside default constructor");
+	}
 
 	@Override
 	public String getFortune() {
