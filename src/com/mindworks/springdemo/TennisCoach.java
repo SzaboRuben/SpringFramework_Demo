@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class TennisCoach implements Coach {
 
-//  @Autowired
+	@Autowired
 	private FortuneService fortuneService;
 
 	public TennisCoach() {
@@ -41,13 +41,13 @@ public class TennisCoach implements Coach {
 //		System.out.println("TennisCoach: inside the setFortuneService() method");
 //		this.fortuneService = fortuneService;
 //	}
-	
+
 //	We can use the @Autowired - annotation ( for dep. injection)  for any method, it can be
 //	setter or whatever
-	@Autowired
-	public void doCrazyyy(FortuneService fortuneService) {
-		System.out.println("TennisCoach: inside the doCrazyyy() method");
-		this.fortuneService = fortuneService;
-	}
+//	@Autowired
+//	public void doCrazyyy(FortuneService fortuneService) {
+//		System.out.println("TennisCoach: inside the doCrazyyy() method");
+//		this.fortuneService = fortuneService;
+//	}
 
 }
